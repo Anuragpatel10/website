@@ -1,89 +1,10 @@
-@import 'normalize';
+@import url('https://fonts.googleapis.com/css?family=Arvo:400i|Crete+Round:400i');
+@import url('https://unpkg.com/bulma@0.7.1/css/bulma.css');
 
-body {
-  margin: 0;
-  padding: 0;
+@import 'new';
 
-  background-color: #fff;
-  color: #222;
-  font-family: sans-serif;
-}
-
-h1 {
-  color: #f40;
-}
-
-#logo-area {
-  background-color: #272822;
-  color: #fff;
-
-  font-size: 5em;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: 0;
-
-  /*using max and min width to fix a problem in IE*/
-  max-width: 100%;
-  min-width: 100%;
-
-  height: 1.25em;
-  max-height: 20%;
-  max-height: 20vmin;
-
-  #ijs-logo {
-    /*using max and min width to fix a problem in IE*/
-    width: 100%;
-
-    height: 1.25em;
-    max-height: 20%;
-    max-height: 20vmin;
-
-    position: absolute;
-    left: 0;
-  }
-}
-
-#tagline {
-  padding: 0.3em 10%;
-  margin: 0;
-  text-align: center;
-  font-size: 1.5em;
-
-  background-color: #29e;
-  color: #fff;
-}
-
-@import "link_btn";
-
-#download {
-  text-align: center;
-  color: #FFF;
-
-  padding: 0.5em 0;
-}
-
-.version-title {
-  display: block;
-  color: #29e;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 0.25em auto;
-}
-
-#get-min, #get-dev {
-  font-size: 1em;
-  background-color: #92e;
-  min-width: 18em;
-  margin: 0.25em;
-  padding: 0.5em;
-
-  display: inline-block;
-
-  a {
-    background-color: #f40;
-
-    margin: 0.5em;
-  }
+.anim-area {
+  flex-grow: 0;
 }
 
 .scroll-top {
@@ -109,75 +30,20 @@ h1 {
   border-radius: 50%;
 }
 
-a, a:hover, a:visited, a:active, a:focus {
-  text-decoration: none;
-}
-
 code {
   overflow-wrap: break-word;
 }
 
-.footer {
-  margin-top: 0.5em;
-  border-top: solid 0.375em #f40;
-  padding: 0.25em 12.5%;
-
-  font-size: 0.875em;
-  text-align: center;
-
-  background-color: #222;
-  color: #fff;
-
-  p {
-    margin: 0.25em;
-  }
-
-  a, a:visited {
-    color: #29e;
-  }
-}
-
-.footer-table {
-  margin: auto;
-}
-
-.footer-round-btn {
-  $shadow: 0.25em;
-  $hover-shadow: $shadow * 2;
-
-  border-radius: 100%;
-  width: 3em;
-  height: 3em;
-  padding: 0;
-  background-color: #fff;
-
-  box-shadow: -$shadow $shadow 0 0.1em rgba(0,0,0, 0.4);
-
-  &:hover, &:focus, &:active {
-    box-shadow: -$hover-shadow $hover-shadow 0 0.1em rgba(0,0,0, 0.4);
-  }
-}
-
-.footer-gratipay {
-  width: 100%;
-  height: 100%;
-}
-
-#demos {
-  width: 90%;
-  margin: auto;
-}
-
 .live-demo {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-       -o-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 
   * {
     -ms-touch-action: none;
-        touch-action: none;
+    touch-action: none;
   }
 }
 

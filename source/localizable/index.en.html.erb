@@ -1,76 +1,159 @@
 ---
 layout: default
-title: JavaScript drag and drop, resizing and gestures with inertia and snapping
+title: JavaScript drag and drop, resizing and gestures
 description: >
                interact.js is a lightweight, standalone JavaScript module for
                handling single-pointer and multi-touch drags and gestures with
                powerful features including inertia and snapping.
 
-scripts:
-    - home/index.bundle
-    - debug
-
 styles:
     - livedemo
 
 links:
-    - ['https://github.com/taye/interact.js', 'View on Github' ,   'github.svg', 'Octocat' ]
+    - ['/docs/'                             , 'Docs'  ,      'doc.svg', 'Docs'    ]
+    - ['https://github.com/taye/interact.js', 'Github' ,   'github.svg', 'Octocat' ]
+    - ['https://gitter.im/taye/interact.js' , 'Chat'        ,     'chat.svg', 'Gitter'  ]
     - ['https://twitter.com/interactjs'     , '@interactjs'    ,     'bird.svg', 'Bird'    ]
-    - ['https://gitter.im/taye/interact.js' , 'Discuss'        ,     'chat.svg', 'Gitter'  ]
-    - :break
-    - ['/docs/'                             , 'Documentation'  ,      'doc.svg', 'Docs'    ]
-    - ['/docs/faq/'                         , 'FAQ'            ,     'help.svg', '?'       ]
-    - :donate_btn
 
 ---
+<div class="page-wrapper">
+  <section class="hero is-dark intro">
 
-<div id="logo-area">
-    <%= image_tag 'ijs-anim-short.svg',
-        :id => 'ijs-logo',
-        :alt => 'interact.js' %>
-</div>
-<p id="tagline"> JavaScript drag and drop, resizing and multi-touch
-gestures with inertia and snapping for modern browsers (and&nbsp;also&nbsp;IE9+) </p>
+    <header class="hero-head">
+      <div class="container">
+        <nav class="level" role="navigation" aria-label="navigation">
 
-<div id="download">
-    <p class="version-title"> Version <%= data.site.current_version %> </p>
-    <div id="get-min">
-        Download the <em>minified</em> version
-        <br> <a class="link-btn" href="//code.interactjs.io/v<%= data.site.current_version %>/interact.min.js">
-            <%= image_tag 'download.svg',
-                :class => 'link-btn-icon',
-                :alt => 'Download' %>
+          <div class="level-left">
+            <a href="/" class="level-item">
+              <h1 class="title is-spaced is-1 has-text-centered-mobile">
+                <span class="ijs-name">
+                  <%= image_tag 'ijs-icon.svg',
+                    :class => 'is-rounded',
+                    :alt => 'Δ' %>
+                  interact.js
+                </span>
+              </h1>
+            </a>
+          </div>
 
-            interact.min.js
-        </a>
+
+          <div class="level-right is-marginless navbar">
+            <%=
+              partial :header_links, :locals => { :links => current_page.data.links }
+            %>
+          </div>
+        </nav>
+      </div>
+
+    </header>
+
+    <div class="hero-body">
+      <div class="container">
+
+        <div class="columns">
+          <div class="column">
+
+            <div class="joiner is-size-4 is-hidden-tablet"></div>
+            <h1 class="title is-size-4-mobile has-text-centered-mobile">
+              JavaScript drag and drop, resizing, and multi-touch gestures
+              for modern browsers (and&nbsp;also&nbsp;IE9+)
+            </h1>
+
+            <div data-clone="1" data-clone-to="#mobile-features" data-clone-class="box is-size-5" class="is-hidden-mobile is-size-5">
+              <div class="columns">
+                <div class="column">
+                  <div class="title is-4 has-text-centered-mobile">Features:</div>
+                  <ul class="features-list">
+                    <li data-feat="">Powerful snap and restriction modifiers</li>
+                    <li data-feat="">Inertial throwing</li>
+                    <li data-feat="">Multiple simultaneous interactions</li>
+                    <li data-feat="">Unified API for touch and mouse events</li>
+                    <li data-feat="">Auto scroll</li>
+                    <li data-feat="">Support for HTML and SVG</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column anim-column">
+
+            <div class="anim-area is-flex">
+              <div class="box is-marginless is-size-7-mobile">
+                <code id="code-sizer" style="white-space: pre-wrap; font-size: 1.25em">
+                </code>
+              </div>
+
+              <iframe id="code-frame" title="Code samples" class="code-frame box is-marginless is-size-7-mobile">
+                <link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism-okaidia.css">
+                <style>
+body {
+  font-size: 1.25rem;
+  color: #eee;
+}
+pre {
+  /* resolves a bug in chrome android */
+  display: inline;
+  // white-space: pre-wrap
+}
+.blast {
+  position: relative
+}
+.cursor::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0.125em;
+  height: 100%;
+  width: 0.25em;
+  background: #ccc;
+}
+                </style>
+                <pre></pre>
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <div id="get-dev">
-        Download the <em>development</em> version
-        <br> <a class="link-btn" href="//code.interactjs.io/v<%= data.site.current_version %>/interact.js">
-            <%= image_tag 'download.svg',
-                :class => 'link-btn-icon',
-                :alt => 'Download' %>
 
-            interact.js
-        </a>
+  </section>
+
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=interactjsio" id="_carbonads_js"></script>
+
+  <section class="hero is-hidden-tablet">
+    <div class="hero-body">
+      <div id="mobile-features" class="container"></div>
     </div>
+  </section>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div id="demos" class="container">
+        <h2 class="title has-text-centered-mobile">Examples</h2>
+
+        <%= [
+          'dragging',
+          'drag-and-drop',
+          'snapping',
+          'resizing',
+          'multi-touch',
+          'pinch-to-zoom',
+          'svg',
+          'pointer-events',
+        ].map { |demo| live_demo demo }.join('<br><br>') %>
+      </div>
+    </div>
+  </section>
 </div>
-
-<%= if current_page.data.links
-  partial :link_btn_list, :locals => { :links => current_page.data.links }
-end %>
-
-<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2J7&placement=interactjsio" id="_carbonads_js"></script>
-
-<div id="demos">
 
 <%= [
-  'dragging',
-  'drag-and-drop',
-  'snapping',
-  'resizing',
-  'multi-touch',
-  'pinch-to-zoom',
-  'svg',
-  'pointer-events',
-].map { |demo| live_demo demo }.join('') %>
+  'https://unpkg.com/cash-dom@2.3.5/dist/cash.min.js',
+  'home/animations',
+  'home/index.bundle',
+  'https://unpkg.com/blast-text@2.0.0/jquery.blast.js',
+  'https://unpkg.com/prismjs@1.15.0/prism.js',
+  'debug',
+].map { |script| javascript_include_tag script }.join("\n") %>

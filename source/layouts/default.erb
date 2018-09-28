@@ -31,6 +31,7 @@ google_plus : "107750313581859477605"
 <% end %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#213544">
 
     <!-- syntax highlighting CSS -->
     <%= stylesheet_link_tag :syntax, media: :screen %>
@@ -46,7 +47,7 @@ google_plus : "107750313581859477605"
 
     <script src="<%= data.site.cdn + data.site.current_version %>/interact.min.js"></script>
 
-    <% current_page.data.scripts.uniq.each do |script| %>
+    <% (current_page.data.scripts || []).uniq.each do |script| %>
         <%= javascript_include_tag script %>
     <% end %>
 
@@ -54,30 +55,52 @@ google_plus : "107750313581859477605"
 <body>
 
 <div class="site">
-    <div class="header">
+
+  <%= yield %>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      By <a href="http://taye.me">Taye Adeyemi</a> &copy;2014-2018.
+      Code released under the <a href="https://github.com/taye/interact.js/LICENSE"> MIT License.</a></p>
     </div>
 
-        <%= yield %>
+    <a class="scroll-top is-hidden-tablet" href="#top" title="Back to top">
+      <%= image_tag 'up.svg',
+        :class => 'scroll-top-icon',
+        :alt => 'Back to top' %>
+    </a>
+  </footer>
 
-    <footer class="footer">
-        <table class="footer-table"><tbody><tr>
-            <td>
-                <p>
-                <% t(:site_by) %> <a href="http://taye.me">Taye Adeyemi</a>
-                    <a href="https://creativecommons.org/licenses/by/4.0/">©2014-<%= Date.today.year %></a>.
-                </p>
-                <p>Code released under the <a href="https://github.com/taye/interact.js/LICENSE"> MIT License.</a></p>
-            </td>
-        </tr></tbody></table>
-
-        <a class="scroll-top" href="#top" title="Back to top">
-            <%= image_tag 'up.svg',
-              :class => 'scroll-top-icon',
-              :alt => 'Back to top' %>
-        </a>
-    </footer>
 </div>
 
+<script>
+  arrayFrom(document.querySelectorAll('[data-clone]')).forEach(function (element) {
+    let n = parseInt(element.dataset.clone, 10);
+    const cloneTo = element.dataset.cloneTo && document.querySelector(element.dataset.cloneTo);
+
+    while (n--) {
+      const clone = element.cloneNode(true);
+
+      const changeClasses = arrayFrom(clone.querySelectorAll('[data-clone-class]'));
+
+      if ('cloneClass' in clone.dataset) { changeClasses.push(clone); }
+
+      changeClasses.forEach(function (element) {
+        element.className = element.dataset.cloneClass;
+      });
+
+      if (cloneTo) {
+        cloneTo.appendChild(clone);
+      }
+      else {
+        element.insertAdjacentElement('afterend', clone);
+      }
+    }
+  });
+
+function arrayFrom (a) { return [].slice.call(a); }
+</script>
 <% if current_page.data.do_not_track != true %>
 <script>
 window.addEventListener('hashchange', function () {

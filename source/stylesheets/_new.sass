@@ -1,0 +1,242 @@
+body
+  _background-color: #272822
+  font-family: 'Open Sans', sans-serif
+
+.page-wrapper
+  min-height: calc(100vh - 10rem)
+
+.title
+  font-family: 'Crete round', serif
+  font-style: italic
+  font-weight: normal
+
+.ijs-name
+  display: inline-flex
+  align-items: center
+  padding: 0.125em 0.25em 0.125em 0.25em
+  vertical-align: bottom
+  font-family: 'Arvo', serif
+  font-style: 'italic'
+  font-weight: normal
+  color: #29e !important
+  background-color: rgba(0,0,0,0.375)
+  border-radius: 2em
+  word-break: normal
+
+  img
+    height: 1em
+    max-height: 1em
+    margin-right: 0.125em
+
+.spacer
+  display: block
+
+  &::after
+    content: '\0000a0'
+
+.joiner
+  display: block
+  margin-top: -1em
+
+.hero-head, .hero-foot
+  .container
+    margin-top: 0.5rem
+
+  .navbar
+    display: flex
+    justify-content: center
+
+    a
+      display: inline-flex
+      align-items: center
+    .white-icon
+      opacity: 0.7
+
+.intro
+  background-color: #213544
+  background-image: radial-gradient(ellipse at bottom right, #213544 44%,#2e5b7b 100%)
+  background-attachment: scroll
+
+.tier-title
+  border-bottom: solid #29e 1px
+  text-align: center
+  margin:
+    right: 1em
+    left: 1em
+  padding-bottom: 0.5em
+
+.features-list
+  padding-left: 1rem
+
+  li
+    line-height: 1em
+    margin-bottom: 0.5em
+
+.anim-column
+  display: flex
+  flex-direction: column
+  justify-content: center
+  _pointer-events: none
+
+.anim-title
+  align-items: center
+  justify-content: center
+  text-transform: capitalize
+
+.anim-area
+  position: relative
+  display: flex
+  max-height: 25em
+  flex-grow: 1
+  justify-content: space-around
+
+  > *
+    opacity: 0
+    pointer-events: none
+    user-select: none
+    transition: opacity 0.25s
+
+    &.is-active
+      user-select: initial
+      pointer-events: initial
+      opacity: 1
+
+  figure
+    background: lightgray
+
+#demo-list-1, #demo-list-2
+  display: inline-block
+  width: 45%
+  margin: 0
+  transition: all 0.3s, opacity 0.3s ease-in-out 0.2s
+  box-shadow: none
+
+  &.combined
+    width: 50%
+
+  .card
+    display: flex
+    margin-bottom: 0.5rem
+    transition: background 0.3s
+
+  .card-content
+    padding: 0.5rem
+    overflow: hidden
+
+    .media
+      overflow: hidden
+
+.combined
+  &#demo-list-1
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+  &#demo-list-2
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+
+.drag-target
+  transform: none
+  background-color: #54a6e0
+  box-shadow: none
+  z-index: 10
+
+  &::after
+    content: ''
+    position: absolute
+    left: calc(50% - 0.5rem)
+    width: 1rem
+    height: 1rem
+    background: red
+    opacity: 0.5
+    border-radius: 50%
+    align-self: center
+    justify-self: center
+
+.text-bar::after
+  content: attr(data-content)
+  display: inline-block
+  height: 0.675em
+  margin: 0.125em 0
+  overflow: hidden
+  letter-spacing: 0.5em
+  background: lightgray
+  color: lightgray
+
+.plus
+  color: #29e
+  font-size: 2rem
+  line-height: inherit
+  vertical-align: text-top
+  font-style: none
+  font-family: sans
+  font-weight: bold
+  &::after
+    content: ' + '
+
+[data-feat]
+  display: flex
+  align-items: center
+  transition: all 0.25s
+  position: relative
+  &.is-active
+    transform: translateX(1em)
+    &::before
+      @extend .plus
+      content: '+'
+      position: absolute
+      left: -1em
+      font-size: 1.25em
+      line-height: initial
+
+#mobile-features [data-feat]
+  transform: none
+
+  &::before
+    content: none
+
+.snap-elements
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-evenly
+  align-content: flex-start
+  opacity: 0
+
+  .snap-element
+    position: relative
+    width: 4rem
+    height: 4rem
+    opacity: 0
+    transform: translateX(-2rem)
+    margin: 5% 2%
+
+    &.drag-target
+      position: absolute
+      display: inline-flex
+      margin: 0
+      background-color: #54a6e0
+
+    &:nth-of-type(2n):not(.drag-target)
+      height: 5rem
+      margin-top: 10%
+
+    &.exit
+      transform: translateY(2rem) !important
+      opacity: 0 !important
+
+.code-frame
+  position: absolute
+  opacity: 0
+  transition: background-color 0.5s ease-in, opacity 0.25s, clip-path 0.5s ease-in
+  background-color: #282828
+  clip-path: circle(0%)
+  z-index: 10
+
+  &.is-active
+    opacity: 1
+    background-color: transparent
+    background-image: radial-gradient(ellipse at bottom right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 100%)
+    clip-path: circle(100%)
+
+footer
+  _display: none

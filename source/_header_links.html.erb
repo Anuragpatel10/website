@@ -1,0 +1,13 @@
+<% links.each do |link| %>
+  <div class="navbar-item">
+  <a href="<%= link[0] %>">
+      <% if (link[2] ||= '') != '' %>
+      <%= image_tag link[2],
+          :class => 'is-hidden-mobile white-icon',
+          :alt => link[3] ||= '' %>
+      <% end %>
+
+    <%= link[1] ||= '' %>
+  </a>
+</div>
+<% end %>

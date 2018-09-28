@@ -20,7 +20,7 @@ class Demo < Middleman::Extension
     title = Rack::Utils::escape_html content[:title]
 
     "
-    <h1 id=\"#{title.downcase.gsub(/[^\w]/, '_')}\">#{title}</h1>
+    <h1 class=\"title is-4\" id=\"#{title.downcase.gsub(/[^\w]/, '_')}\">#{title}</h1>
     <div class=\"demo-area\">
     " +
       [:html, :css, :js].select { |lang| content[lang] }.map do |lang|
@@ -28,7 +28,7 @@ class Demo < Middleman::Extension
       <input
         id=\"livedemo-#{@counter}-#{lang}\"
         name=\"livedemo-#{@counter}\"
-        #{lang == :js ? 'checked="checked"' : ''}
+        #{lang == (content[:js] ? :js : :html)? 'checked="checked"' : ''}
         type=\"radio\"
         hidden>
       <label class=\"#{lang}-label\" for=\"livedemo-#{@counter}-#{lang}\"> #{lang.upcase} </label>
