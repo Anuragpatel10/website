@@ -1,10 +1,14 @@
+svg {
+  touch-action: none;
+  pointer-events: none;
+}
+
 .point-handle {
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: -ms-grab;
     cursor: grab;
-
-    touch-action: none;
+    pointer-events: all;
 }
 
 .dragging, .dragging .point-handle {

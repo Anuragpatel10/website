@@ -52,11 +52,10 @@ class Demo < Middleman::Extension
       css: 'style',
       js: 'script',
     }.reduce({}) do |memo, (lang, tag)|
-      element = doc.xpath("html/#{tag}").first
+      if element = doc.xpath("html/#{tag}").first
+        memo[lang] = @commentFlags[lang] + element.inner_html.strip
+      end
 
-      return memo unless element
-
-      memo[lang] = @commentFlags[lang] + element.inner_html.strip
       memo
     end
 
