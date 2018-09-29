@@ -65,7 +65,7 @@ google_plus : "107750313581859477605"
       Code released under the <a href="https://github.com/taye/interact.js/LICENSE"> MIT License.</a></p>
     </div>
 
-    <a class="scroll-top is-hidden-tablet" href="#top" title="Back to top">
+    <a class="scroll-top hidden is-hidden-tablet" href="#top" title="Back to top">
       <%= image_tag 'up.svg',
         :class => 'scroll-top-icon',
         :alt => 'Back to top' %>
@@ -97,6 +97,15 @@ google_plus : "107750313581859477605"
         element.insertAdjacentElement('afterend', clone);
       }
     }
+  });
+
+  var showScrollIcon = false;
+
+  window.addEventListener('scroll', function () {
+    const newValue = window.scrollY > 300;
+    if (newValue === showScrollIcon) { return; }
+    document.querySelector('.scroll-top').classList[newValue ? 'remove' : 'add']('hidden');
+    showScrollIcon = newValue;
   });
 
 function arrayFrom (a) { return [].slice.call(a); }

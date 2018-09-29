@@ -68,19 +68,21 @@ function updateCodeFrameSize () {
 
 async function codeDemo ({ code = '', lang = 'markup', append, delimiter = 'word', speed = delimiter === 'character' ? 20 : 40 }) {
   const $codeFrame = $('.code-frame');
-  const frameBody = $codeFrame[0].contentWindow.document.body;
 
   updateCodeFrameSize();
 
   if (!$codeFrame.hasClass('is-active')) {
+    const frameHtml = $codeFrame.text();
+
     $codeFrame.siblings().removeClass('is-active');
-    $codeFrame.addClass('is-active');
-    frameBody.innerHTML = $codeFrame.html();
+    $codeFrame.addClass('is-active').html('');
+    $codeFrame[0].contentWindow.document.documentElement.innerHTML = frameHtml;
 
     // clear iframe selection
     $(document).on('selectionchange touchstart', () => $codeFrame[0].contentWindow.getSelection().empty());
   }
 
+  const frameBody = $codeFrame[0].contentWindow.document.body;
   const transparent = 'rgba(0, 0, 0, 0)';
   const $pre = $('pre', frameBody);
   const $code = $('<code>');
