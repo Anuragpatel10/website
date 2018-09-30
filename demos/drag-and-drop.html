@@ -1,9 +1,9 @@
 <title> Drag and drop </title>
 
 <body>
-<div id="no-drop" class="draggable drag-drop"> #no-drop </div>
+<div id="no-drop" class="drag-drop"> #no-drop </div>
 
-<div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
+<div id="yes-drop" class="drag-drop"> #yes-drop </div>
 
 <div id="outer-dropzone" class="dropzone">
   #outer-dropzone
@@ -104,4 +104,18 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   }
 });
+
+interact('.drag-drop')
+  .draggable({
+    inertia: true,
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    autoScroll: true,
+    // dragMoveListener from the dragging demo above
+    onmove: dragMoveListener,
+  });
+
 </script>
