@@ -1,3 +1,5 @@
+$logo-img-size: 1em
+
 body
   _background-color: #272822
   font-family: 'Open Sans', sans-serif
@@ -24,9 +26,9 @@ body
   word-break: normal
 
   img
-    height: 1em
-    max-height: 1em
-    max-width: 1em
+    height: $logo-img-size
+    max-height: $logo-img-size
+    max-width: $logo-img-size
     margin-right: 0.125em
 
 .spacer
@@ -38,6 +40,8 @@ body
 .joiner
   display: block
   margin-top: -1em
+  &.is-double
+    margin-top: -2em
 
 .hero-head, .hero-foot
   .container
@@ -70,6 +74,7 @@ body
 
 .features-list
   padding-left: 1rem
+  list-style: disc inside
 
   li
     line-height: 1em
@@ -178,8 +183,8 @@ body
     content: ' + '
 
 [data-feat]
-  display: flex
-  align-items: center
+  // display: flex
+  // align-items: center
   transition: all 0.25s
   position: relative
   &.is-active

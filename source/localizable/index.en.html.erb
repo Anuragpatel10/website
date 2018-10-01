@@ -17,7 +17,7 @@ links:
 
 ---
 <div class="page-wrapper">
-  <section class="hero is-dark intro">
+  <section class="hero is-medium is-dark intro">
 
     <header class="hero-head">
       <div class="container">
@@ -47,6 +47,8 @@ links:
 
     </header>
 
+    <div class="joiner is-size-1 is-hidden-mobile"></div>
+
     <div class="hero-body">
       <div class="container">
 
@@ -54,15 +56,17 @@ links:
           <div class="column">
 
             <div class="joiner is-size-4 is-hidden-tablet"></div>
-            <h1 class="title is-size-4-mobile has-text-centered-mobile">
+            <h1 class="title is-1 is-size-4-mobile has-text-centered-mobile">
               JavaScript drag and drop, resizing, and multi-touch gestures
               for modern browsers (and&nbsp;also&nbsp;IE9+)
             </h1>
 
+            <div class="spacer is-hidden-mobile"></div>
+
             <div data-clone="1" data-clone-to="#mobile-features" data-clone-class="box is-size-5" class="is-hidden-mobile is-size-5">
               <div class="columns">
                 <div class="column">
-                  <div class="title is-4 has-text-centered-mobile">Features:</div>
+                  <div class="title is-4 is-hidden-tablet has-text-centered-mobile">Features:</div>
                   <ul class="features-list">
                     <li data-feat="">Powerful snap and restriction modifiers</li>
                     <li data-feat="">Inertial throwing</li>
@@ -121,30 +125,36 @@ pre {
 
   </section>
 
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=interactjsio" id="_carbonads_js"></script>
+  <div class="container">
+    <div class="joiner is-size-3 is-double is-hidden-mobile"></div>
 
-  <section class="hero is-hidden-tablet">
-    <div class="hero-body">
-      <div id="mobile-features" class="container"></div>
-    </div>
-  </section>
+    <div class="box">
 
-  <section class="hero">
-    <div class="hero-body">
-      <div id="demos" class="container">
-        <%= [
-          'dragging',
-          'drag-and-drop',
-          'snapping',
-          'resizing',
-          'multi-touch',
-          'pinch-to-zoom',
-          'svg',
-          'pointer-events',
-        ].map { |demo| live_demo demo }.join('<br><br>') %>
-      </div>
+      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=interactjsio" id="_carbonads_js"></script>
+
+      <section class="is-hidden-tablet">
+        <div id="mobile-features" class="container"></div>
+      </section>
+
+      <section class="section">
+        <div class="joiner is-size-1 is-hidden-mobile"></div>
+
+        <div id="demos">
+          <%= [
+            'dragging',
+            'drag-and-drop',
+            'snapping',
+            'resizing',
+            'multi-touch',
+            'pinch-to-zoom',
+            'svg',
+            'pointer-events',
+          ].map { |demo| live_demo demo }.join('<br><br>') %>
+        </div>
+      </section>
+
     </div>
-  </section>
+  </div>
 </div>
 
 <%= [
