@@ -5,6 +5,8 @@
     "watch": "npm run bundle -- --watch"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
     "interactjs": "taye/interact.js#unstable",
     "jquery": "^2.2.3",
     "jquery-highlight": "^3.4.0",
@@ -17,7 +19,6 @@
     "lunr": "^1.0.0"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "bulma": "^0.5.3",
     "errorify": "^0.3.1",
