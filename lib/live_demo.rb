@@ -20,7 +20,7 @@ class Demo < Middleman::Extension
     title = Rack::Utils::escape_html content[:title]
 
     "
-    <h1 class=\"title is-4\" id=\"#{title.downcase.gsub(/[^\w]/, '_')}\">#{title}</h1>
+    <h1 class=\"title is-3\" id=\"#{title.downcase.gsub(/[^\w]/, '_')}\">#{title}</h1>
     <div class=\"demo-area\">
     " +
       [:html, :css, :js].select { |lang| content[lang] }.map do |lang|
