@@ -148,10 +148,10 @@ pre {
 </div>
 
 <%= [
+  'debug',
   'https://unpkg.com/cash-dom@2.3.5/dist/cash.min.js',
   'home/animations',
   'home/index.bundle',
   'https://unpkg.com/blast-text@2.0.0/jquery.blast.js',
   'https://unpkg.com/prismjs@1.15.0/prism.js',
-  'debug',
 ].map { |script| javascript_include_tag script }.join("\n") %>

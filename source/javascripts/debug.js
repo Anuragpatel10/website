@@ -1,28 +1,27 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    var debugMatch = location.search.match(/[?&]debug=([^&]+)/),
-        debugVersion = debugMatch && debugMatch[1];
+  var debugMatch = location.search.match(/[?&]debug=([^&]+)/),
+    version = debugMatch && debugMatch[1];
 
-    if (debugVersion) {
-        window._interact = window.interact;
-        window.interact = null;
+  if (version) {
+    window._interact = window.interact;
+    window.interact = null;
 
-        var newScript = document.createElement('script');
+    var newScript = document.createElement('script');
+    let user = 'taye';
 
-        if (/.\/./.test(debugVersion)) {
-            var user = debugVersion.match(/^[^/]+/)[0],
-                version = debugVersion.match(/[^/]+$/)[0];
-
-            newScript.src = '//rawgit.com/' + user + '/interact.js/' + version + '/dist/interact.js';
-        }
-        else {
-            newScript.src = '//rawgit.com/taye/interact.js/' + debugVersion + '/dist/interact.js';
-        }
-
-        document.write(newScript.outerHTML);
-
-        console.log('Demos run with ' + debugVersion + ' version of interact.js');
-        console.log(newScript.src);
+    if (/.\/./.test(version)) {
+      const versionParts = version.split('/');
+      user = versionParts[0];
+      version = versionParts[1];
     }
+
+    newScript.src = '//rawgit.com/' + user + '/interact.js/' + version + '/packages/interactjs/dist/interact.js';
+
+    document.write(newScript.outerHTML);
+
+    console.log('Demos run with ' + version + ' version of interact.js');
+    console.log(newScript.src);
+  }
 }());
