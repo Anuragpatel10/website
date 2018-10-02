@@ -5,9 +5,13 @@
   <clipPath id="clipPath4115">
    <circle transform="matrix(.72344 0 0 .72344 117.75 53.037)" cx="194.84" cy="15.591" r="55.291"/>
   </clipPath>
+  <linearGradient id="linearGradient5289" x1="7.642" x2="235.77" y1="51.907" y2="51.907" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#1d384c" offset="0"/>
+   <stop stop-color="#172733" offset="1"/>
+  </linearGradient>
  </defs>
  <g transform="translate(-7.642 -29.049)">
-  <rect x="7.642" y="29.049" width="228.13" height="45.716" ry="22.858" fill-opacity=".37647"/>
+  <rect x="7.642" y="29.049" width="228.13" height="45.716" ry="22.858" fill="url(#linearGradient5289)"/>
   <g transform="matrix(.47103 0 0 .47103 15.715 34.95)" fill="#29e">
    <g transform="matrix(.92979 0 0 .92979 -207.32 -23.8)" clip-path="url(#clipPath4115)">
     <rect x="218.7" y="24.316" width="80" height="80" fill="#29e"/>
