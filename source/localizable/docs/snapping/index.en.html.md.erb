@@ -63,9 +63,10 @@ interact(element)
   .resizable({
     snapSize: {
       targets: [
-        // snap the width and height to multiples of 100 when the element size
-        // is 25 pixels away from the target size
+        // snap the width and height to 50x50
         { width: 50, height: 50, range: 25 },
+        // snap to multiples of 100
+        interact.createSnapGrid({ width: 100, height: 100, range: 10 }),
       ]
     }
   });
