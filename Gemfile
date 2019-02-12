@@ -19,3 +19,5 @@ gem "wdm", "~> 0.1", :platforms => [:mswin, :mingw]
 gem "therubyracer", :platforms => :ruby
 
 gem "nokogiri", "~> 1.8"
+
+gem 'typescript-node', '~> 1.6', '>= 1.6.2'

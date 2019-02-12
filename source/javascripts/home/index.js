@@ -1,9 +1,8 @@
 const extend = require('extend');
-
 const liveDemo = require('livedemo');
 
 const liveDemoOptions = {
-  codeElementDepth: 3,
+  codeElementDepth: 4,
   insertPosition  : 'beforeend',
 
   HTMLSelector : liveDemo.options.HTMLSelector + ', .highlight.html code',
